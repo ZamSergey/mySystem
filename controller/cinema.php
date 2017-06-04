@@ -10,6 +10,7 @@ class Controller_cinema extends Controller_main{
 
                 default:
                     self::index();
+
             }
             self::showPage();
         } else {
