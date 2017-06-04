@@ -1,0 +1,50 @@
+<!-- <?php print_r($data['messages']) ?> -->
+
+<p>Что то кого то</p>
+
+<?if($user['mode'] != 'admin'):?>
+<p>Если бы Вы были админом то смогли бы изменить права пользователей</p>
+<?endif?>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>login</th>
+        <th>status</th>
+        <?if($user):?>
+        <th colspan="2">управление</th>
+        <?endif?>
+    </tr>
+   <?foreach($users as $use):?>
+    <tr>
+        <td><?=$use['id_user']?></td>
+        <td><?=$use['login']?></td>
+        <td><?=$use['mode']?></td>
+
+        <?if($user['mode'] == 'admin'):?>
+            <?if($use['mode'] != 'admin'):?>
+                <td><button class="userEdit" data-item=<?=$use['id_user']?>><a href="">ред</a></button></td>
+                <td><button><a href="<?=SUBSERVER?>admin/remove/<?=$use['id_user']?>/">X</a></button></td>
+            <?endif?>
+        <?endif?>
+
+
+    </tr>
+
+    <?endforeach?>
+    <pre>
+    <!--<? print_r($users) ?>-->
+    </pre>
+
+</table>
+
+<div class="formForUser" style="display: none">
+    <form method="POST" action="">
+        пользователь: <input type="text" id="userName" name="newsTitle"><br>
+        статус: <select name="userStatus" id="userStatus">
+                    <option value="superUser">Super user</option>
+                    <option value="user">User</option>
+                 </select><br>
+
+        <!-- <input type="submit" id="newsButton" value="ok"> -->
+    </form>
+</div>

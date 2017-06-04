@@ -1,0 +1,14 @@
+<header>header, menu и все такое прочее
+<ul id="navbar">
+	<li><a href="<?=SUBSERVER?>">Главная</a></li>
+  	<li><a href="<?=SUBSERVER?>news/show/">Новости</a></li>
+  	<?if($user):?>
+	<li><a href="<?=SUBSERVER?>admin/show">Админка</a></li>
+	<li><a href="<?=SUBSERVER?>cinema/show">Перечень кинотеатров</a></li>
+	
+	<?endif?>
+</ul>
+</header>
+<?if($user):?>
+Привет, <?=$data['user']['name']?>
+<?endif?>
